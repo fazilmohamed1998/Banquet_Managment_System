@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="payment_report_template_n" pageWidth="595" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3abfb572-519c-4a54-a789-8ffa19f493b4">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="from" class="java.lang.String"/>
+	<parameter name="to" class="java.lang.String"/>
+	<parameter name="payMethod" class="java.lang.String"/>
+	<parameter name="status" class="java.lang.String"/>
+	<parameter name="totReceived" class="java.lang.String"/>
+	<parameter name="totRefunded" class="java.lang.String"/>
+	<parameter name="grandTot" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="ref" class="java.lang.String"/>
+	<field name="customer" class="java.lang.String"/>
+	<field name="amount" class="java.lang.String"/>
+	<field name="payMethod" class="java.lang.String"/>
+	<field name="paidOn" class="java.lang.String"/>
+	<field name="status" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="81" splitType="Stretch">
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement stretchType="ContainerBottom" x="0" y="0" width="110" height="78" uuid="b83518eb-8386-4878-b112-5cf6fa17037f"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="0" y="0" width="555" height="30" forecolor="#5C5C5C" uuid="6405eee4-91de-4d93-a370-1301484bb868">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="19" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.report.title}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="236" y="40" width="49" height="20" forecolor="#5C5C5C" uuid="0750dc6f-82c4-401b-a925-9954d0f13623">
+					<printWhenExpression><![CDATA[new java.lang.Boolean($P{from} != "-" || $P{to} != "-")]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.report.from}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="236" y="60" width="49" height="20" forecolor="#5C5C5C" uuid="ae2891f3-75c8-4601-910a-5b7311a86139">
+					<printWhenExpression><![CDATA[new java.lang.Boolean($P{to} != "-" || $P{from} != "-")]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.report.to}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="285" y="40" width="10" height="20" forecolor="#5C5C5C" uuid="e5bb7477-8180-48c3-8bb9-04157700322d">
+					<printWhenExpression><![CDATA[new java.lang.Boolean($P{from} != "-" || $P{to} != "-")]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="60" width="10" height="20" forecolor="#5C5C5C" uuid="cd0da86f-facb-43b3-9e2b-917b972a5cb4">
+					<printWhenExpression><![CDATA[new java.lang.Boolean($P{to} != "-" || $P{from} != "-")]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="295" y="40" width="72" height="20" forecolor="#5C5C5C" uuid="bab91a40-8bd7-42d4-8566-f612b8cae61e">
+					<printWhenExpression><![CDATA[new java.lang.Boolean($P{from} != "-" || $P{to} != "-")]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{from}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="295" y="60" width="72" height="20" forecolor="#5C5C5C" uuid="5c1f764f-6f21-4c52-8399-6c11a92e04e6">
+					<printWhenExpression><![CDATA[new java.lang.Boolean($P{to} != "-" || $P{from} != "-")]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{to}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="470" y="40" width="10" height="20" forecolor="#5C5C5C" uuid="bad74ff1-d809-4f22-8166-3ea9ecc62056"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="60" width="10" height="20" forecolor="#5C5C5C" uuid="99453867-0f22-4ced-a50e-0bc767329a7e"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="374" y="60" width="96" height="20" forecolor="#5C5C5C" uuid="08bb3dc2-ffe7-4f2a-bacf-96d1ee67605c"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.report.status}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="40" width="96" height="20" forecolor="#5C5C5C" uuid="861a6f38-e969-40a7-a6d6-8c13d21db2aa"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.report.pay.method}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="40" width="74" height="20" forecolor="#5C5C5C" uuid="02ec6faf-c10e-4a32-84b6-1f62dcccd6fd"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{payMethod}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="60" width="74" height="20" forecolor="#5C5C5C" uuid="6bc352e7-58ff-4f04-ac3e-5524e28dbb1b"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{status}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="3" width="555" height="26" forecolor="#8B90EC" backcolor="#8B90EC" uuid="1cb92ded-2f8d-42ae-a16c-c10016bbc738">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<textField>
+				<reportElement x="10" y="3" width="103" height="26" forecolor="#FFFFFF" uuid="46b48115-3ec0-4905-b0ed-9b3f44717b12"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.report.reference}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="3" width="97" height="26" forecolor="#FFFFFF" uuid="0f9ceedb-4d7e-47ea-8ab0-e575e33fec93"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.report.customer}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="210" y="3" width="70" height="26" forecolor="#FFFFFF" uuid="c25094b4-8eb8-4fed-a357-973d39aa794d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.report.amount}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="3" width="90" height="26" forecolor="#FFFFFF" uuid="859c372a-ef94-45a1-80d9-f4b5626de383"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.report.pay.method}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="3" width="120" height="26" forecolor="#FFFFFF" uuid="b6f5c8f1-a4d9-405d-9dec-d0278ed54377"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.report.paid.on}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="490" y="3" width="65" height="26" forecolor="#FFFFFF" uuid="aadcacac-21d0-4c9a-9921-34c54a684d99"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.report.status}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<rectangle>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="26" forecolor="#BCBFF5" backcolor="#BCBFF5" uuid="380f01fd-a78c-4878-b2d2-ad912f103893">
+					<printWhenExpression><![CDATA[new java.lang.Boolean($V{REPORT_COUNT} % 2 == 0)]]></printWhenExpression>
+				</reportElement>
+			</rectangle>
+			<textField>
+				<reportElement x="10" y="0" width="103" height="26" uuid="e454d65a-014f-4ee0-8580-893f1cbfa5a9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="26775dc3-ff09-47a5-9211-3076fec186c5"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ref}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="0" width="97" height="26" uuid="2d78c1a4-8a76-41ab-945b-ae17b6207d41">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f997a46a-e4bc-4095-be93-e3cdfb03d6af"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{customer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="210" y="0" width="70" height="26" uuid="ceac4864-5155-4969-8253-d127014642f0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9a5fbf05-2e44-4ad4-a17f-54eece399d9e"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="90" height="26" uuid="8c577a01-d559-4a05-9655-2606a3aa1db0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b66f2ea6-55ff-4576-b0a1-e331dad95667"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{payMethod}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="120" height="26" uuid="00b32a3a-ddff-4343-b856-49e5aadf3421">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="20476724-b8c3-4039-aa29-78fb615354eb"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{paidOn}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="490" y="0" width="65" height="26" uuid="73b1cff0-e147-4e1a-a813-9e69595d5c1b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="02020004-bc68-4618-9905-b36143205983"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="71" splitType="Stretch">
+			<textField>
+				<reportElement x="380" y="5" width="100" height="20" uuid="2f99f9c1-40a2-4541-b033-321f86dc16a9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.report.received}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="25" width="100" height="20" forecolor="#A19F9F" uuid="b04f7c44-3f3d-42ba-a0e6-bcb5b1fd000e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.report.refunded}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="45" width="100" height="20" uuid="b2794688-5956-4a5b-a814-accba993bcb9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.report.total}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="490" y="5" width="64" height="20" uuid="8d2657bd-4936-48ae-a1af-ccf447eecdd5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{totReceived}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="480" y="5" width="10" height="20" uuid="93132649-e603-4634-aa12-8b8112cb38da"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="25" width="10" height="20" forecolor="#A19F9F" uuid="6a4a63f3-fcb6-413f-bc5e-3b44b2321db8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="45" width="10" height="20" uuid="087d6302-99dd-4c85-bc25-5979ffcda6d5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="490" y="25" width="64" height="20" forecolor="#A19F9F" uuid="95e8b7ec-710d-435e-b046-81023bd25521"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{totRefunded}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="490" y="45" width="64" height="20" uuid="b60ce8b2-0acd-449a-89f1-f7112a59f5d7"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{grandTot}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-20" y="0" width="595" height="20" forecolor="#8B90EC" backcolor="#8B90EC" uuid="30607982-9fdf-4d6f-acdd-f3f8cd83911a"/>
+			</rectangle>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="0" width="197" height="20" forecolor="#FFFFFF" uuid="65c99d91-baea-4fa4-99ef-174274a5bf25"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="eeef8b64-daf3-4e1e-884b-126f37484c6c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="550" y="0" width="25" height="20" forecolor="#FFFFFF" uuid="2eb0124e-f793-472f-9a1c-9588372eaee5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

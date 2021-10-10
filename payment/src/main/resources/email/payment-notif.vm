@@ -1,0 +1,99 @@
+<html>
+<head>
+    <style>
+        .pay-receipt {
+            text-align: center;
+            font-family: Nunito, sans-serif;
+            font-size: .875rem;
+            color: #8492a6;
+        }
+
+        .pay-receipt .pay-img {
+            height: 133px;
+            width: 202px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pay-receipt .salutation {
+            font-size: 1rem;
+        }
+
+        .pay-receipt .success-message {
+            color: #5D63D2;
+            font-size: 1.8rem;
+        }
+
+        .pay-receipt .refund-message {
+            color: #ff4363;
+            font-size: 1.8rem;
+        }
+
+        .pay-receipt .amount {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .pay-receipt span {
+            display: block
+        }
+
+        .pay-receipt .pay-detail {
+            margin-top: 10px;
+        }
+
+        .pay-receipt .pay-detail .ref, .pay-receipt .pay-detail .event, .pay-receipt .pay-detail .date {
+            display: inline-block;
+        }
+
+        .pay-receipt .contact-us {
+            margin-top: 20px;
+        }
+
+        .pay-receipt .contact-us img {
+            height: 20px;
+            vertical-align: middle;
+        }
+
+        .pay-receipt .contact-us a {
+            text-decoration: none;
+            color: #5D63D2;
+            display: inline-block;
+        }
+
+        .pay-receipt .contact-us a:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        .pay-receipt .contact-us a {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="pay-receipt">
+    <img class="pay-img" src="cid:pay-vector"/>
+    <span class="salutation">Hi ${customerName},</span>
+    #if ($isRefund == "true")
+        <span class="refund-message">Payment Refund !</span>
+    #else
+        <span class="success-message">Payment Successful !</span>
+    #end
+    <span class="amount">${amount}</span>
+    <div class="pay-detail">
+        <span class="refLbl"><b>Reference</b> : <span
+                class="ref">${payRef}</span></span>
+        <span class="eventLbl"><b>Event</b> : <span
+                class="event">${event}</span></span>
+        #if ($isRefund != "true")
+            <span class="dateLbl"><b>Date</b> : <span
+                    class="date">${eventDate}</span></span>
+        #end
+    </div>
+    <div class="contact-us">
+        <img src="cid:tel"/><a href="tel:${tel}" class="tel">${tel}</a>
+        <img src="cid:mail"/><a href="mailto:${email}" class="email">${email}</a>
+    </div>
+</div>
+</body>
+</html>

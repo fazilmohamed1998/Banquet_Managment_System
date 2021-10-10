@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_Landscape" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7b9079c4-757d-407a-8ef1-5c6dd8b80d2b">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="companyName" class="java.lang.String"/>
+	<parameter name="companyAddress" class="java.lang.String"/>
+	<parameter name="companyTelFax" class="java.lang.String"/>
+	<parameter name="companyEmailWeb" class="java.lang.String"/>
+	<parameter name="isRefund" class="java.lang.Boolean"/>
+	<parameter name="refundImg" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="serialNo" class="java.lang.String"/>
+	<field name="receiptNo" class="java.lang.String"/>
+	<field name="date" class="java.lang.String"/>
+	<field name="receivedFrom" class="java.lang.String"/>
+	<field name="payFor" class="java.lang.String"/>
+	<field name="amount" class="java.lang.String"/>
+	<field name="payMethod" class="java.lang.String"/>
+	<field name="logo" class="java.io.InputStream"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="118" splitType="Stretch">
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement stretchType="ContainerBottom" x="20" y="1" width="120" height="91" uuid="9f97a90f-570b-48f4-9e80-7f1681e87e27"/>
+				<imageExpression><![CDATA[$F{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="0" y="0" width="802" height="30" uuid="12066ef8-56fd-43c2-805d-013e8973be07">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="30" width="802" height="20" uuid="1971140e-4598-4776-ba86-aece8ce23b9e">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyAddress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="50" width="802" height="20" uuid="d7dcc89d-e582-4c0c-8ff4-8e2bfff58960">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyTelFax}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="70" width="802" height="20" uuid="cdd5cd6f-cb35-464f-9e58-5346fade6727">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyEmailWeb}]]></textFieldExpression>
+			</textField>
+			<rectangle radius="3">
+				<reportElement x="666" y="56" width="100" height="30" forecolor="#FFFFFF" backcolor="#858585" uuid="15303755-698d-457c-b625-0a3631094673">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+			</rectangle>
+			<textField>
+				<reportElement x="666" y="56" width="100" height="30" forecolor="#FFFFFF" uuid="01881b74-2a0b-4f46-9b73-e4cf5328f476">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box topPadding="5" leftPadding="5" bottomPadding="5" rightPadding="5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.receipt.title}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="666" y="1" width="100" height="48" uuid="9300cf4c-0994-4120-b242-7e74a1c77426"/>
+				<imageExpression><![CDATA[com.google.zxing.client.j2se.MatrixToImageWriter.toBufferedImage(
+new com.google.zxing.qrcode.QRCodeWriter().encode(
+$F{receiptNo},
+com.google.zxing.BarcodeFormat.QR_CODE, 1000, 1000,
+    com.google.common.collect.ImmutableMap.of(com.google.zxing.EncodeHintType.MARGIN,0)))]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="64" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="31" width="50" height="20" uuid="e38cbc13-6335-495a-a1a4-5c81de754d8d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.receipt.serial.no.heading}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="31" width="100" height="20" forecolor="#757575" uuid="4123c02e-2deb-4919-aa38-0e9638eef211"/>
+				<textElement verticalAlignment="Middle">
+					<font size="15" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{serialNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="580" y="17" width="100" height="22" uuid="8b542ae9-bfd3-4a29-bca8-cb65961330ff">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.receipt.receipt.no.heading}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="580" y="41" width="100" height="22" uuid="ab0d1344-df1b-4200-8867-b9acda90c68d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box rightPadding="5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.receipt.date.heading}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="680" y="17" width="120" height="22" uuid="4f03aa98-ec66-4ac0-9853-ef7ed21efd6f"/>
+				<box leftPadding="5" rightPadding="5">
+					<pen lineWidth="0.25" lineColor="#BFBFBF"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{receiptNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="680" y="41" width="120" height="22" uuid="9f625f43-6c33-4045-a20b-2cfce45c6bbd"/>
+				<box leftPadding="5" rightPadding="5">
+					<pen lineWidth="0.25" lineColor="#BFBFBF"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="328" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="13" width="219" height="30" uuid="0e91ab0a-6994-4ccd-9413-54a9b8a87cd2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.receipt.field.1}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="102" width="98" height="30" uuid="c0a71baa-7f63-45fb-be71-0595de800360"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.receipt.field.2}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="198" y="17" width="590" height="18" uuid="30ac4b76-7755-4d25-ab77-0609ec0f5884"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{receivedFrom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="105" width="693" height="18" uuid="5a547287-69f9-41b5-ba77-bd45e6ed11ec"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payFor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="201" width="141" height="27" uuid="d0287d1c-42e2-4e7e-8dfd-a09eedf00398"/>
+				<textElement verticalAlignment="Middle">
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="34" y="228" width="150" height="1" uuid="79611de0-f4b3-4fb6-acdb-fd76feb2a240">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="3.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="5" y="201" width="29" height="30" uuid="fccd7941-b670-4552-8473-707eefe36b53"/>
+				<textElement verticalAlignment="Middle">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.receipt.currency.symbol}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="2" y="240" width="420" height="23" forecolor="#8C8C8C" uuid="6c3c3924-4440-4fc2-ae55-0ba6b85ad4d4">
+					<printWhenExpression><![CDATA[$P{isRefund} == false]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(" + (new String($R{lbl.payment.receipt.notice}.getBytes("ISO-8859-1"), "UTF-8")) + ")"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="289" width="143" height="30" uuid="360a5a3b-2ea3-4b42-ad2b-8c74fc6397b9"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.receipt.pay.method.heading}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="289" width="170" height="30" uuid="d3c19180-cf6a-4da6-9a84-bbce7a325415">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new String($R{lbl.payment.receipt.signature.heading}.getBytes("ISO-8859-1"), "UTF-8")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="138" y="290" width="173" height="23" uuid="ffe4b924-2406-4228-9a9a-3fadf35bbed8"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payMethod}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="3" y="71" width="799" height="1" uuid="fd376677-b3cf-49b8-a7a2-21f921dee34c"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="179" y="37" width="622" height="1" uuid="54a2d644-a016-4d57-aa36-f3febe1ae31b">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="3" y="160" width="799" height="1" uuid="6284d71e-2a73-4212-8585-a112b9527707"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="87" y="126" width="715" height="1" uuid="6b930be2-211b-40df-938e-f5333e8a36ec">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="600" y="313" width="190" height="1" uuid="11274aa5-cc5b-423e-a7c2-a7e70e34a851">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="126" y="313" width="200" height="1" uuid="684e71c9-e2c3-4409-9b9f-971acb38384b">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="570" y="203" width="176" height="50" uuid="1c82ca38-b47f-4c82-a5e5-c5175e9473cd">
+					<printWhenExpression><![CDATA[$P{isRefund}]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{refundImg}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,7 @@
+#progress {
+    z-index: 1100 !important;
+}
+
+#confirm {
+    z-index: 1060 !important;
+}

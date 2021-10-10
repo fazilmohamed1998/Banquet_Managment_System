@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="food_report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20"
+              topMargin="20" bottomMargin="20" uuid="7917d75f-46d5-42a1-8aa9-bbe51143f536">
+    <property name="com.jaspersoft.studio.data.sql.tables"
+              value="IkFERFJFU1MiICwxNSwxNSwxMThjOTEzZC0xZmI3LTQxZWItOTNkMy1kZDUxZTRjNWY3ZjU7"/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+    <queryString language="SQL">
+        <![CDATA[SELECT "ADDRESS"."FIRSTNAME" AS PRICE,
+	"ADDRESS"."LASTNAME" AS NAME,
+	"ADDRESS"."STREET" AS CATEGORY,
+	"ADDRESS"."CITY" AS CUISINE,
+	"ADDRESS"."ID"
+FROM "ADDRESS"]]>
+    </queryString>
+    <field name="id" class="java.lang.Integer">
+        <property name="com.jaspersoft.studio.field.label" value="ID"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="ADDRESS"/>
+    </field>
+    <field name="price" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.label" value="PRICE"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="ADDRESS"/>
+    </field>
+    <field name="name" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.label" value="NAME"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="ADDRESS"/>
+    </field>
+    <field name="category" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.label" value="FOOD_TYPE"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="ADDRESS"/>
+    </field>
+    <field name="cuisine" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.label" value="CUISINE"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="ADDRESS"/>
+    </field>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="79" splitType="Stretch">
+            <staticText>
+                <reportElement x="10" y="0" width="545" height="79" uuid="8bf6626a-bbdf-45cb-9502-bf0f4f62509d"/>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="20" isBold="true"/>
+                </textElement>
+                <text><![CDATA[FOOD REPORT]]></text>
+            </staticText>
+        </band>
+    </title>
+    <columnHeader>
+        <band height="30" splitType="Stretch">
+            <staticText>
+                <reportElement x="10" y="0" width="107" height="30" uuid="a8473bc7-11ae-4a6b-aec3-5a295bd47777">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="3986d2e8-5a55-460d-81ff-d65dd02b9ebf"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[FOOD ID]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="117" y="0" width="97" height="30" uuid="bfea9f92-86d0-49ba-b340-5c5d7409ce9d">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="a57aa455-8ade-4edf-8b47-31950ba541bf"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[PRICE]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="214" y="0" width="117" height="30" uuid="4d961b1e-bfc1-4ce2-9da5-a5846add69bb">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="138a507c-dd5e-49fa-aed2-1ea907bab605"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[NAME]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="330" y="0" width="112" height="30" uuid="c37b60fd-77e8-4916-8f42-d931032d47f0">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="8b36db89-6aef-41e7-bf1f-99d3ca7cc43a"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[CATEGORY]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="442" y="0" width="113" height="30" uuid="b0382e17-843b-47b9-ac1a-931aedca9ab3">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="1a403506-5b2f-41ed-928b-3c6bfeb40b55"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[CUISINE]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="31" splitType="Stretch">
+            <textField>
+                <reportElement x="10" y="0" width="107" height="30" uuid="86779916-1f63-456d-9417-07f573e2dd03">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="3986d2e8-5a55-460d-81ff-d65dd02b9ebf"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="117" y="0" width="97" height="30" uuid="db23ea0e-19f5-4090-9ea7-9f898a1ddd12">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="a57aa455-8ade-4edf-8b47-31950ba541bf"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="214" y="0" width="117" height="30" uuid="86db7b9d-a2dc-4b91-866a-8050a536e600">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="138a507c-dd5e-49fa-aed2-1ea907bab605"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="330" y="0" width="112" height="30" uuid="bd273320-311a-48a3-910a-3f736e59773d">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="8b36db89-6aef-41e7-bf1f-99d3ca7cc43a"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{category}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="442" y="0" width="113" height="30" uuid="6fd5ea8b-f0d2-43e5-8f4f-c84822c26bcb">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="1a403506-5b2f-41ed-928b-3c6bfeb40b55"/>
+                </reportElement>
+                <box>
+                    <pen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{cuisine}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>

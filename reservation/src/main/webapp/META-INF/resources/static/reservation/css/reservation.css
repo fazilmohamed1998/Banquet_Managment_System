@@ -1,0 +1,71 @@
+/*
+@author Harin on 8/30/2019.
+*/
+#modifyReservationModal .reservation-detail .customer {
+    width: 50%;
+    float: left;
+}
+
+#modifyReservationModal .reservation-detail .event {
+    width: 50%;
+    float: right;
+}
+
+form {
+    margin-bottom: unset !important;
+}
+
+.reservation-detail {
+    margin-bottom: 18px;
+    display: inline-block;
+    width: -webkit-fill-available;
+}
+
+#modifyReservationModal .reservation-detail .type {
+    width: 50%;
+    float: left;
+}
+
+#modifyReservationModal .reservation-detail .reserved-on {
+    width: 50%;
+    float: right;
+}
+
+#modifyReservationModal form {
+    margin-bottom: unset !important;
+}
+
+.reservation-detail {
+    margin-bottom: 18px;
+    display: inline-block;
+    width: -webkit-fill-available;
+}
+
+@media (min-width: 576px) {
+    .modal-400px {
+        max-width: 400px
+    }
+}
+
+.reservation-actions {
+    width: fit-content;
+    display: inline-block;
+    margin-top: 15px;
+    position: absolute;
+}
+
+tr.row-refund {
+    background-color: #f5f5f5;
+}
+
+tr.row-refund td:first-child {
+    border-left: 5px solid var(--danger);
+}
+
+tr.row-refund .amount {
+    color: var(--danger);
+}
+
+.table tbody tr.row-refund:hover {
+    background-color: #f5f5f5 !important;
+}

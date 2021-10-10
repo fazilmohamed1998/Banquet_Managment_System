@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" debug="true">
+
+    <if condition='isDefined("catalina.home")'>
+        <then>
+            <property name="LOG_DIR" value="${catalina.home}/logs"/>
+        </then>
+        <else>
+            <property name="LOG_DIR" value="./target/logs"/>
+        </else>
+    </if>
+    <property name="LOG_FILE_PREFIX" value="lk.sliit.project"/>
+    <property name="TIME_BASED_ROLLING_FILE_SUFFIX" value="%d{yyyy-MM-dd}.%i.gz"/>
+    <property name="FILE_LOG_PATTERN"
+              value="%d{HH:mm:ss.SSS} [%thread] %-5level %class{36}.%M %L - %msg%n"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level [%logger{36}:%L] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--Daily rolling file appender -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_DIR}/${LOG_FILE_PREFIX}.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_DIR}/${LOG_FILE_PREFIX}.log-${TIME_BASED_ROLLING_FILE_SUFFIX}
+            </FileNamePattern>
+            <!-- keep 90 days' worth of history -->
+            <MaxHistory>90</MaxHistory>
+            <!-- or whenever the file size reaches 20MB -->
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>20MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <Pattern>${FILE_LOG_PATTERN}</Pattern>
+            </layout>
+        </encoder>
+    </appender>
+
+    <logger name="lk.elevenzcode.bms" level="ALL"/>
+
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="org.springframework.web.socket" level="ALL"/>
+
+    <logger name="org.hibernate" level="INFO"/>
+    <logger name="org.hibernate.SQL" level="ALL"/>
+    <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="ALL"/>
+
+    <logger name="org.springframework.web" level="INFO"/>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>

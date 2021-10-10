@@ -1,0 +1,134 @@
+.details {
+    min-width: 160px;
+}
+
+.details span {
+    margin-bottom: 2px;
+}
+
+.food-name {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.food-price, .food-id {
+    font-size: 13px;
+}
+
+.menu-name {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.menu-price, .menu-id {
+    font-size: 13px;
+}
+
+.GFG {
+    font-size: 42px;
+    font-weight: bold;
+    color: #009900;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.peg {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#food-card-container {
+    margin-top: 10px;
+}
+
+#food-menu-container {
+    margin-top: 10px;
+}
+
+.btn:not(:last-child) {
+    margin-right: 5px;
+}
+
+.dropdown-menu {
+    min-width: unset !important;
+}
+
+.dropdown-menu .dropdown-item {
+    padding: .25rem 1rem !important;
+}
+
+.menu-card {
+    max-width: unset !important;
+}
+
+.menu-food-card {
+    width: 100%;
+    max-width: unset;
+    border-width: 3px;
+    margin-bottom: 5px;
+}
+
+.menu-food-card .card-body {
+    padding: unset !important;
+    justify-content: unset !important;
+}
+
+.menu-food-card img {
+    margin: unset !important;
+}
+
+.menu-food-card .food-detail {
+    margin: 6px 0px 8px 8px;
+}
+
+.menu-food-card .food-detail .food-price {
+    margin-left: 130px;
+    margin-right: 9px;
+}
+
+.menu-food-card .action-item {
+    font-size: 18px;
+    padding: 20px 11px;
+    border-left: 3px solid #eff2f7;
+}
+
+.menu-card .food-container {
+    display: block !important;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.menu-card .card-title {
+    margin-bottom: unset !important;
+    padding: 10px 10px 5px 10px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.menu-card .card-subtitle {
+    padding-left: 5px;
+    font-size: 14px;
+}
+
+.menu-card .card-footer .actions {
+    float: right;
+}
+
+.menu-card .card-footer .actions .action-item:not(:last-child) {
+    margin-right: 5px;
+}
+
+.menu-card .card-footer .menu-info {
+    width: fit-content;
+    display: inline-block;
+    padding: 0px 10px;
+}
+
+.menu-info .menu-price {
+    font-size: 15px !important;
+    margin-left: 90px;
+    font-weight: bold;
+    color: #8492a6;
+}
